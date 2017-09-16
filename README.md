@@ -1,5 +1,5 @@
-Role Name
-=========
+Common
+======
 
 Common Role for Kazoo Ansible
 
