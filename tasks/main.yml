@@ -21,6 +21,18 @@
     name: yum-utils
     state: latest
 
+- name: Install FirewallD
+  yum:
+    name: firewalld
+    state: latest
+
+- name: Start and Enable FirewallD
+  service:
+    name: firewalld
+    state: started
+    daemon_reload: yes
+    enabled: yes
+
 - name: Install Sup Python Library
   copy:
     src: library/sup.py
