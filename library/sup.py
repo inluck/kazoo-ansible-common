@@ -80,7 +80,7 @@ def _sup(cookie, args):
     exit_code, stdout, stderr = process.call_process(cmd)
     
     if exit_code:
-        raise IOError(stderr)
+        raise IOError(stdout)
     
     return exit_code, stdout, stderr
 
