@@ -25,20 +25,10 @@ def get_ip_ec2():
 
 def get_ip_other():
     try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('8.8.8.8', 80))
-        ipv4 = s.getsockname()[0]
+        response = open_url('http://whatismyip.akamai.com/', timeout=10)
+        return (response.read(), None)
     except:
-        ipv4 = None
-    
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('2001:4860:4860::8888', 80))
-        ipv6 = s.getsockname()[0]
-    except:
-        ipv6 = None
-    
-    return (ipv4, ipv6)
+        return (None, None)
 
 def get_ip():
     ipv4 = None
