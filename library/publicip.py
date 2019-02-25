@@ -57,13 +57,13 @@ def main():
 
     (ipv4, ipv6) = get_ip()
 
-    print(json.dumps({
-        'changed': False,
-        'ansible_facts': {
-            'public_ipv4': ipv4,
-            'public_ipv6': ipv6
-        }
-    }))
+    module.exit_json(
+      changed=False,
+      ansible_facts={
+        'public_ipv4': ipv4,
+        'public_ipv6': ipv6
+     }
+    )
 
 if __name__ == '__main__':
     main()
