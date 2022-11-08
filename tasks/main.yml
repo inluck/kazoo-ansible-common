@@ -8,7 +8,7 @@
 
 - name: Install 2600hz Stable Repo
   yum:
-    name: https://packages.2600hz.com/centos/7/stable/2600hz-release/4.1/2600hz-release-4.1-0.el7.centos.noarch.rpm
+    name: https://packages.2600hz.com/centos/7/stable/2600hz-release/4.1/2600hz-release-4.3-0.el7.centos.noarch.rpm
     state: installed
 
 - name: Install Delta RPMs
@@ -20,6 +20,42 @@
   yum:
     name: yum-utils
     state: latest
+
+- name: Install ghostscript
+  yum:
+    name: ghostscript
+    state: latest
+
+- name: Install libtiff-tools
+  yum:
+    name: libtiff-tools
+    state: latest
+
+- name: Install ilbc
+  yum:
+    name: ilbc
+    state: latest
+    
+- name: Install ilbc-devel
+  yum:
+    name: ilbc-devel
+    state: latest
+
+- name: Install flite rpm from signalwire
+  ansible.builtin.command: yum install -y https://media.altinc.ca/kazoo/flite-2.0.0-1.el7.centos.x86_64.rpm
+
+- name: Install g722_1 rpm from signalwire
+  ansible.builtin.command: yum install -y https://media.altinc.ca/kazoo/g722_1-0.2.0-1.el7.centos.x86_64.rpm
+
+- name: Install spandsp3 rpm from signalwire
+  ansible.builtin.command: yum install -y https://media.altinc.ca/kazoo/spandsp3-3.0.0-25.6ec23e5a7e.x86_64.rpm
+
+- name: Install ilbc2 rpm from signalwire
+  ansible.builtin.command: yum install -y https://media.altinc.ca/kazoo/ilbc2-0.0.1-1.el7.centos.x86_64.rpm
+
+- name: Install opus rpm from signalwire
+  ansible.builtin.command: yum install -y https://media.altinc.ca/kazoo/opus-1.1-1.el7.centos.x86_64.rpm
+
 
 - name: Install FirewallD
   yum:
